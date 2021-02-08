@@ -65,7 +65,7 @@ export default {
   serverMiddleware: [
     {
       path: '/',
-      handler: '~/server-middleware/funql-api.js',
+      handler: '~/server-middleware/main.js',
     },
   ],
 

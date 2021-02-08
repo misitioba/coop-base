@@ -23,8 +23,11 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/pwa": "^3.3.5",
+    "connect-mongo": "^3.2.0",
     "core-js": "^3.8.3",
+    "express-session": "^1.17.1",
     "funql-api": "^1.2.11",
+    "mongoose": "^5.11.15",
     "nodemon": "^2.0.7",
     "nuxt": "^2.14.12",
     "vuejs-logger": "^1.5.5",

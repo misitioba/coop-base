@@ -1,18 +1,26 @@
-const app = require('express')()
 const funql = require('funql-api')
-funql.middleware(app, {
-  /* defaults */
-  getMiddlewares: [],
-  postMiddlewares: [],
-  allowGet: false,
-  allowOverwrite: false,
-  attachToExpress: true,
-  allowCORS: false,
-  api: {
-    helloWorld(name) {
-      return `Hello ${name}`
+const mongoose = require('mongoose')
+module.exports = async (app) => {
+  return await funql.middleware(app, {
+    /* defaults */
+    getMiddlewares: [],
+    postMiddlewares: [],
+    allowGet: false,
+    allowOverwrite: false,
+    attachToExpress: true,
+    allowCORS: false,
+    api: {
+      async helloWorld(name) {
+        const kittySchema = new mongoose.Schema({
+          name: String,
+        })
+        const Kitten = mongoose.model('Kitten', kittySchema)
+        const silence = new Kitten({
+          name: 'Silence',
+        })
+        await silence.save()
+        return `Hello ${name}`
+      },
     },
-  },
-})
-
-module.exports = app
+  })
+}
